@@ -25,6 +25,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     Button buttonSearch;
     EditText editTextInputZipCode;
     TextView textViewListOfBirds;
+    TextView textViewListOfName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +35,8 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         editTextInputZipCode = findViewById(R.id.editTextInputZipCode);
         buttonSearch = findViewById(R.id.buttonSearch);
         buttonSearch.setOnClickListener(this);
-        editTextInputZipCode = findViewById(R.id.editTextInputZipCode);
         textViewListOfBirds = findViewById(R. id.textViewListOfBirds);
+        textViewListOfName = findViewById(R. id. textViewListOfName);
     }
 
 
@@ -68,7 +69,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
         if (buttonSearch == view) {
             String findbird = editTextInputZipCode.getText().toString();
-            myRef.orderByChild("zip").equalTo(findbird).addChildEventListener(new ChildEventListener() {
+            myRef.orderByChild("zipcode").equalTo(findbird).addChildEventListener(new ChildEventListener() {
                 @Override
                 public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                     //String findKey = dataSnapshot.getKey();//
@@ -77,7 +78,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                     String findName = foundBird.you;
 
                     textViewListOfBirds.setText(findBird);
-                    textViewListOfBirds.setText(findName);
+                    textViewListOfName.setText(findName);
                 }
 
 

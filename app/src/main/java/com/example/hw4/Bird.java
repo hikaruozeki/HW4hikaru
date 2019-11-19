@@ -6,7 +6,7 @@ public String bird;
 public String you;
 public String zipcode;
 
-    public Bird(String birdName, String yourName, int newZipCode) {
+    public Bird() {
     }
 
     public Bird(String bird, String you, String zipcode) {
