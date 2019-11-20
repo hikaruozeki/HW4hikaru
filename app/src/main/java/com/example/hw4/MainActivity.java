@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
-    
+
 
 
 
@@ -73,23 +73,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
-
+        MenuInflater inflator = getMenuInflater();
+        inflator.inflate(R.menu.mainmenu, menu);
 
         return super.onCreateOptionsMenu(menu);
-
-
-
-
-
-
-
-
     }
 
 
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.itemRegister) {
+            Toast.makeText(this, "You are already in Register page, you fool!", Toast.LENGTH_SHORT).show();
+        } else if (item.getItemId() == R.id.itemSearch) {
+            Intent SearchIntent = new Intent(this, SearchActivity.class);
+            startActivity(SearchIntent);
+        }
 
+        return super.onOptionsItemSelected(item);
+
+
+    }
 
 
 
